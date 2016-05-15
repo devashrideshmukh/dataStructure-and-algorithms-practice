@@ -21,6 +21,18 @@ public class RunnerLinkedList {
 		
 		linkedList.insertIntheMiddleOfLinkedList(88);
 		linkedList.printAllElements();
+		
+		linkedList.deleteANodeAFirst();
+		linkedList.printAllElements();
+		
+		linkedList.deleteIntheMiddle();
+		linkedList.printAllElements();
+		
+		linkedList.deleteANodeAtLast();
+		linkedList.printAllElements();
+		
+		
+		
 		System.out.println("Total number of Node:"+linkedList.numberOfNode());
 		
 	}
