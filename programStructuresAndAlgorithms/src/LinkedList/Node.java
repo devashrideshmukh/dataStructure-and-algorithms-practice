@@ -1,5 +1,10 @@
 package LinkedList;
 
+/**
+ * 
+ * @author Devashri
+ *
+ */
 public class Node {
 	
 	Node next;
