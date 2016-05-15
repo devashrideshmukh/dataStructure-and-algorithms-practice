@@ -96,15 +96,15 @@ public class LinkedList {
 			return;
 		} else {
 			Node current = this.first;
-			while (current.next.next!= null) {
+			while (current.next.next != null) {
 				current = current.next;
 			}
-			current.next=null;
+			current.next = null;
 		}
 	}
-	
-	//delete middle node of a linkedlist
-	public void deleteIntheMiddle(){
+
+	// delete middle node of a linkedlist
+	public void deleteIntheMiddle() {
 		if (isEmpty()) {
 			System.err.println("List is empty, item cannot be deleted");
 			return;
@@ -112,7 +112,7 @@ public class LinkedList {
 			int countOfNodes = numberOfNode();
 			int position = countOfNodes % 2 == 0 ? countOfNodes / 2 : (countOfNodes / 2) + 1;
 			Node current = this.first;
-			Node prev=null;
+			Node prev = null;
 			for (int i = 0; i < position - 1; i++) {
 				prev = current;
 				current = current.next;
@@ -120,6 +120,8 @@ public class LinkedList {
 			prev.next = current.next;
 		}
 	}
+	
+	
 
 	// print all linked list elements
 	public void printAllElements() {
