@@ -121,8 +121,6 @@ public class LinkedList {
 		}
 	}
 	
-	
-
 	// print all linked list elements
 	public void printAllElements() {
 

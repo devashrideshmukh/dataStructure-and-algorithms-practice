@@ -35,7 +35,7 @@ public class Problem1_CTCI {
 
 	}
 	
-	// without using temporary buffer i.e. using pointers
+	//without using temporary buffer i.e. using pointers
 	//takes O(N2) time, O(1) space
 	public void removeDuplicatesUsingPointers(LinkedList list){
 		Node first = list.first;
