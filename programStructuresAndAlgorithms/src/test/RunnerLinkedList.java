@@ -13,7 +13,15 @@ public class RunnerLinkedList {
 		linkedList.insertNodeAtFirst(4);
 		linkedList.insertNodeAtFirst(2);
 		linkedList.insertNodeAtFirst(1);
+		linkedList.insertNodeAtFirst(18);
+		linkedList.insertANodeAtLast(23);
+		linkedList.insertANodeAtLast(15);
 		linkedList.printAllElements();
+		
+		
+		linkedList.insertIntheMiddleOfLinkedList(88);
+		linkedList.printAllElements();
+		System.out.println("Total number of Node:"+linkedList.numberOfNode());
 		
 	}
 	

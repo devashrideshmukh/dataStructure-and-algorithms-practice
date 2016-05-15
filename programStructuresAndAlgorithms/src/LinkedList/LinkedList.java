@@ -26,6 +26,63 @@ public class LinkedList {
 		}
 	}
 	
+	//insert a node at last
+	public void insertANodeAtLast(int data){
+		Node nodeToBeInserted = new Node(data);
+		if(isEmpty()){
+			this.first=nodeToBeInserted;
+			nodeToBeInserted.next=null;
+		}else{
+			Node current = first;
+			
+			while(current.next!=null){
+				
+				current = current.next;
+			}
+			current.next=nodeToBeInserted;
+			nodeToBeInserted.next=null;
+		}
+	}
+	
+	//count number of nodes in a linked list
+	public int numberOfNode(){
+		int count = 0;
+		if(isEmpty()){
+			return count;
+		}else{
+			Node current = first;
+			while(current!=null){
+				count++;
+				current = current.next;
+			}
+		}
+		return count;
+	}
+	
+	//insert node in the middle 
+	public void insertIntheMiddleOfLinkedList(int data){
+		int countOfNodes = numberOfNode();
+		int position = countOfNodes%2==0?countOfNodes/2:(countOfNodes/2)+1;
+		Node nodeToBeInserted = new Node(data);
+		if(isEmpty()){
+			this.first=nodeToBeInserted;
+			nodeToBeInserted.next=null;
+		}else{
+			Node current = first;
+			for(int i=0;i<position-1;i++){
+				current = current.next;
+			}
+			
+			Node prev = current.next;
+			current.next=nodeToBeInserted;
+			nodeToBeInserted.next=prev;
+		}
+	}
+	
+	//delete a node at first
+	
+	
+	
 	//print all linked list elements
 	public void printAllElements(){
 		
