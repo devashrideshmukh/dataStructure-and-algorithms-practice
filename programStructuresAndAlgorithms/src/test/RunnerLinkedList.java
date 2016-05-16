@@ -5,6 +5,7 @@ import LinkedList.Node;
 import LinkedList.Problem1_CTCI;
 import LinkedList.Problem2_CTCI;
 import LinkedList.Problem3_CTCI;
+import LinkedList.ReversingLinkedList;
 
 public class RunnerLinkedList {
 	
@@ -60,6 +61,11 @@ public class RunnerLinkedList {
 		
 		Problem3_CTCI problem3 = new Problem3_CTCI();
 		System.out.println("Middle node is "+problem3.findMiddleNodeAndDeleteIt(linkedList).getData());
+		linkedList.printAllElements();
+		
+		ReversingLinkedList rl = new ReversingLinkedList();
+		System.out.println("\nReversed list is : ");
+		rl.reverseLinkedList(linkedList);
 		linkedList.printAllElements();
 		
 		System.out.println("\nTotal number of Nodes in the list:"+linkedList.numberOfNode());
