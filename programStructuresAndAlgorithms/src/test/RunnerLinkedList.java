@@ -1,7 +1,10 @@
 package test;
 
 import LinkedList.LinkedList;
+import LinkedList.Node;
 import LinkedList.Problem1_CTCI;
+import LinkedList.Problem2_CTCI;
+import LinkedList.Problem3_CTCI;
 
 public class RunnerLinkedList {
 	
@@ -35,10 +38,6 @@ public class RunnerLinkedList {
 		linkedList.deleteANodeAFirst();
 		linkedList.printAllElements();
 		
-		System.out.println("\nDeleting node at middle");
-		linkedList.deleteIntheMiddle();
-		linkedList.printAllElements();
-		
 		System.out.println("\nDeleting node at last");
 		linkedList.deleteANodeAtLast();
 		linkedList.printAllElements();
@@ -51,7 +50,19 @@ public class RunnerLinkedList {
 		problem1.removeDuplicatesUsingPointers(linkedList);
 		linkedList.printAllElements();
 		
-		System.out.println("\nTotal number of Nodes:"+linkedList.numberOfNode());
+		
+		linkedList.insertNodeAtFirst(3);
+		Problem2_CTCI problem2 = new Problem2_CTCI();
+		Node kthToLast = problem2.kthToLastElement(3, linkedList);
+		linkedList.printAllElements();
+		System.out.println("Kth to last element"+kthToLast.getData());
+		
+		
+		Problem3_CTCI problem3 = new Problem3_CTCI();
+		System.out.println("Middle node is "+problem3.findMiddleNodeAndDeleteIt(linkedList).getData());
+		linkedList.printAllElements();
+		
+		System.out.println("\nTotal number of Nodes in the list:"+linkedList.numberOfNode());
 		
 	}
 	
