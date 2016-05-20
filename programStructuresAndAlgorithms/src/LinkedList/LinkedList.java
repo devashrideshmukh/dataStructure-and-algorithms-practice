@@ -8,6 +8,10 @@ public class LinkedList {
 	public LinkedList() {
 		first = null;
 	}
+	
+	public Node getFirst() {
+		return first;
+	}
 
 	// check if linked list is empty
 	public boolean isEmpty() {
@@ -126,6 +130,19 @@ public class LinkedList {
 		buffer.deleteCharAt(length - 3);
 
 		System.out.println(buffer.toString());
+	}
+	
+	public void reverseLinkedListUsingRecursion(Node node){
+		
+		Node head ;
+		Node restOfTheList = first.next;
+		if(restOfTheList==null)return;
+		reverseLinkedListUsingRecursion(restOfTheList);
+		first.next.next=first;
+		first.next=null;
+		this.first=restOfTheList;
+		
+	
 	}
 
 }

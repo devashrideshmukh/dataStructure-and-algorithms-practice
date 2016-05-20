@@ -35,14 +35,5 @@ public class ReversingLinkedList {
 	/**
 	 * Reversing a linked list recursively
 	 */
-	public void reverseLinkedListUsingRecursion(LinkedList list){
-		
-		if(list.isEmpty()){
-			System.out.println("List is empty");
-			return;
-		}else{
-			
-		}
-		
-	}
+	
 }

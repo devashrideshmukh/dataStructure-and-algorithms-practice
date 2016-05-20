@@ -6,6 +6,7 @@ import arraysAndStrings.Problem3_CTCI;
 import arraysAndStrings.Problem4_CTCI;
 import arraysAndStrings.Problem5_CTCI;
 import arraysAndStrings.Problem6_CTCI;
+import arraysAndStrings.TwoSum;
 
 public class RunnerArraysAndStrings {
 
@@ -38,6 +39,14 @@ public class RunnerArraysAndStrings {
 		
 		Problem6_CTCI problem6 = new Problem6_CTCI();
 		System.out.println("Problem 6: "+problem6.returnCompressedString("firefoxthunderbirddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"));
+		
+		TwoSum ts = new TwoSum();
+		int[] nums = {2, 7, 11, 15};
+		int[] result=ts.twoSum(nums,9);
+		int[] result1=ts.twoSum(nums,9);
+		System.out.println("The indices are:"+result[0]+","+result[1]);
+		System.out.println("The indices are (one pass):"+result1[0]+","+result1[1]);
+		
 		//===================================================================================//
 	}
 	

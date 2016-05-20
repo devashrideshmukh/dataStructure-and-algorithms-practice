@@ -67,6 +67,8 @@ public class RunnerLinkedList {
 		System.out.println("\nReversed list is : ");
 		rl.reverseLinkedList(linkedList);
 		linkedList.printAllElements();
+		linkedList.reverseLinkedListUsingRecursion(linkedList.getFirst());
+		linkedList.printAllElements();
 		
 		System.out.println("\nTotal number of Nodes in the list:"+linkedList.numberOfNode());
 		
