@@ -30,6 +30,9 @@ public class RunnerArraysAndStrings {
 		Problem4_CTCI problem4 = new Problem4_CTCI();
 		System.out.println("Problem 4: "+problem4.checkIfPermuationOfPalindrome("taco cat"));
 		System.out.println("Problem 4: "+problem4.checkIfPermuationOfPalindrome("amyamalla"));
+		System.out.println("Problem 4: "+problem4.checkIfPermuationOfPalindrome("Devashri"));
+		System.out.println("Problem 4: "+problem4.checkIfPermuationOfPalindrome(" "));
+		System.out.println("Problem 4: "+problem4.checkIfPermuationOfPalindrome("DevkkkaaaveD"));
 		
 		Problem5_CTCI problem5 = new Problem5_CTCI();
 		System.out.println("Problem 5: "+problem5.checkIfStringIfOneEditAway("pale", "ple"));
