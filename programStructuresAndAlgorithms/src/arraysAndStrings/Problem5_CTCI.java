@@ -28,10 +28,12 @@ public class Problem5_CTCI {
 
 	}
 
+	//replaced
 	public boolean sameLengthEdit(String mainString, String editedString) {
 		boolean foundDifference = false;
 		for (int i = 0; i < mainString.length(); i++) {
 			if (mainString.charAt(i) != editedString.charAt(i)) {
+				//if it has already been edited once, and again change arises, return false
 				if (foundDifference) {
 					return false;
 				}
@@ -41,13 +43,18 @@ public class Problem5_CTCI {
 		return true;
 	}
 
+	//inserted or removed
 	public boolean insertedOrRemoved(String first, String second) {
 
 		int index1 = 0;
 		int index2 = 0;
 
 		while (index1 < first.length() && index2 < second.length()) {
+			
 			if (first.charAt(index1) != second.charAt(index2)) {
+				
+				//index2 is incremented when edit arises
+				//if need for incrementing index2 arises more than once, then return false
 				if (index2 != index1) {
 					return false;
 				}
