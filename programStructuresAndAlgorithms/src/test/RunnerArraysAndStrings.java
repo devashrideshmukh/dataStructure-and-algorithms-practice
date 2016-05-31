@@ -1,11 +1,16 @@
 package test;
 
+import arraysAndStrings.Anagrams;
+import arraysAndStrings.OccurancesOfCharacter;
+import arraysAndStrings.PalindromeString;
 import arraysAndStrings.Problem1_CTCI;
 import arraysAndStrings.Problem2_CTCI;
 import arraysAndStrings.Problem3_CTCI;
 import arraysAndStrings.Problem4_CTCI;
 import arraysAndStrings.Problem5_CTCI;
 import arraysAndStrings.Problem6_CTCI;
+import arraysAndStrings.Problem7_CTCI;
+import arraysAndStrings.StringComputations;
 import arraysAndStrings.TwoSum;
 
 public class RunnerArraysAndStrings {
@@ -49,6 +54,41 @@ public class RunnerArraysAndStrings {
 		int[] result1=ts.twoSum(nums,9);
 		System.out.println("The indices are:"+result[0]+","+result[1]);
 		System.out.println("The indices are (one pass):"+result1[0]+","+result1[1]);
+		
+		Anagrams anagrams = new Anagrams();
+		System.out.println("Is anagram ? "+anagrams.isAnagram("devashri", "irhsaved"));
+		System.out.println("Is anagram ? "+anagrams.isAnagram("Mother In Law", "Hitler Woman"));
+		System.out.println("Is anagram ? "+anagrams.isAnagram("keEp", "peeK"));
+		System.out.println("Is anagram ? "+anagrams.isAnagram("SiLeNt CAT", "LisTen AcT"));
+		System.out.println("Is anagram ? "+anagrams.isAnagram("Debit Card", "Bad Credit"));
+		System.out.println("Is anagram ? "+anagrams.isAnagram("School MASTER", "The ClassROOM"));
+		System.out.println("Is anagram ? "+anagrams.isAnagram("DORMITORY", "Dirty Room"));
+		System.out.println("Is anagram ? "+anagrams.isAnagramUsingArrays("ASTRONOMERS", "NO MORE STARS"));
+		System.out.println("Is anagram ? "+anagrams.isAnagram("joy", "enjoy"));
+		System.out.println("Is anagram ? "+anagrams.isAnagramUsingArrays("Toss", "Shot"));
+		
+		PalindromeString ps = new PalindromeString();
+		System.out.println("madam is palindrome : "+ ps.isTextPalindrome("ma,dam"));
+		System.out.println("mada is palindrome : "+ ps.isTextPalindrome("mada"));
+		System.out.println("devashriirhsaved is palindrome : "+ ps.isTextPalindrome("devashriirhsaved"));
+		System.out.println("devashri8rhsaved is palindrome : "+ ps.isTextPalindrome("devashri8rhsaved"));
+		
+		OccurancesOfCharacter occ = new OccurancesOfCharacter();
+		System.out.println("Count of D in 'DevashriDeshmukh' "+occ.countOccurances("DevashriDeshmukh",'D'));
+		
+		Problem7_CTCI prob7 = new Problem7_CTCI();
+		int[][] matrix = {{1,2,3,4,5,6},{7,8,9,10,11,12},{13,14,15,16,17,18},{19,20,21,22,23,24},{25,26,27,28,29,30},{31,32,33,34,35,36}};
+		prob7.rotate(matrix, 6);
+		for(int i=0;i<matrix.length;i++){
+			for (int j = 0; j < matrix.length; j++) {
+				System.out.print(matrix[i][j]+"\t");
+			}
+			System.out.print("\n");
+		}
+		
+		StringComputations stringComputations = new StringComputations();
+		System.out.println("'122' converted to integer : "+stringComputations.returnConvertedInteger("   122"));
+		System.out.println("'-122' converted to integer : "+stringComputations.returnConvertedInteger("-122"));
 		
 		//===================================================================================//
 	}
