@@ -24,15 +24,12 @@ public class Problem4_CTCI {
 
 		for (int i = 0; i < input.length(); i++) {
 
-			Integer value = characterFrequencyMap.get(input.charAt(i));
-
-			if (value == null) {
-
-				characterFrequencyMap.put(input.charAt(i), 1);
-
-			} else {
-
-				characterFrequencyMap.put(input.charAt(i), value + 1);
+			char key = input.charAt(i);
+			if(characterFrequencyMap.containsKey(key)){
+				int count = characterFrequencyMap.get(key);
+				characterFrequencyMap.put(key, count+1);
+			}else{
+				characterFrequencyMap.put(key, 1);
 			}
 
 		}

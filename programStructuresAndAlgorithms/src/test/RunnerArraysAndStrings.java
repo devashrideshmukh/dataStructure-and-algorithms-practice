@@ -10,6 +10,7 @@ import arraysAndStrings.Problem4_CTCI;
 import arraysAndStrings.Problem5_CTCI;
 import arraysAndStrings.Problem6_CTCI;
 import arraysAndStrings.Problem7_CTCI;
+import arraysAndStrings.Program9_CTCI;
 import arraysAndStrings.StringComputations;
 import arraysAndStrings.TwoSum;
 
@@ -47,6 +48,10 @@ public class RunnerArraysAndStrings {
 		
 		Problem6_CTCI problem6 = new Problem6_CTCI();
 		System.out.println("Problem 6: "+problem6.returnCompressedString("firefoxthunderbirddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"));
+		
+		Program9_CTCI prob9 = new Program9_CTCI();
+		System.out.println("Problem 9:"+prob9.isStringRotation("waterbottle", "bottlewater"));
+		System.out.println("Problem 9:"+prob9.isStringRotation("waterbottle", "ottlewatebr"));
 		
 		TwoSum ts = new TwoSum();
 		int[] nums = {2, 7, 11, 15};
@@ -86,10 +91,17 @@ public class RunnerArraysAndStrings {
 			System.out.print("\n");
 		}
 		
+		
+		
+		
 		StringComputations stringComputations = new StringComputations();
 		System.out.println("'122' converted to integer : "+stringComputations.returnConvertedInteger("   122"));
 		System.out.println("'-122' converted to integer : "+stringComputations.returnConvertedInteger("-122"));
-		
+		System.out.println("'-122a' converted to integer : "+stringComputations.returnConvertedInteger("-122a"));
+		System.out.println("'-aaaa' converted to integer : "+stringComputations.returnConvertedInteger("-aaaa"));
+		System.out.println("First non-repeating character "+stringComputations.getFirstNonRepeatingCharacter("devashri"));
+		System.out.println("First non-repeating character "+stringComputations.getFirstNonRepeatingCharacter("ddeevvaasshri"));
+		System.out.println("First non-repeating character "+stringComputations.getFirstNonRepeatingCharacter("ddeevvaa"));
 		//===================================================================================//
 	}
 	
