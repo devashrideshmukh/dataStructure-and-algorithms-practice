@@ -3,6 +3,7 @@ package arraysAndStrings;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Check if two strings are anagrams of each other
@@ -17,42 +18,31 @@ public class Anagrams {
 		firstString = firstString.trim().replace(" ", "").toLowerCase();
 		secondString = secondString.trim().replace(" ", "").toLowerCase();
 
+		HashMap<Character, Integer> mapOfFrequency = new HashMap<>();
+
 		if (firstString.length() != secondString.length()) {
 			return false;
 		}
 
-		HashMap<Character, Integer> characterFrequencyMap = new HashMap<Character, Integer>();
-
 		for (int i = 0; i < firstString.length(); i++) {
-
-			int characterCount = characterFrequencyMap.containsKey(firstString.charAt(i))
-					? characterFrequencyMap.get(firstString.charAt(i)) : 0;
-
-			characterFrequencyMap.put(firstString.charAt(i), characterCount + 1);
-
-			int countOfSecondString = characterFrequencyMap.containsKey(secondString.charAt(i))
-					? characterFrequencyMap.get(secondString.charAt(i)) : 0;
-					
-			characterFrequencyMap.put(secondString.charAt(i), countOfSecondString-1);
-			
+			Character firstChar = firstString.charAt(i);
+			Integer count = mapOfFrequency.containsKey(firstChar) ? mapOfFrequency.get(firstChar) : 0;
+			mapOfFrequency.put(firstChar, count+1);
+			Character secondChar = secondString.charAt(i);
+			Integer count2 = mapOfFrequency.containsKey(secondChar) ? mapOfFrequency.get(secondChar) : 0;
+			mapOfFrequency.put(secondChar, count2-1);
 		}
-			
-		Iterator<Integer> it = characterFrequencyMap.values().iterator();
-			
-			while(it.hasNext()){
-				Integer value = it.next();
-				if(value.intValue()!=0){
-					return false;
-				}
+		
+		Iterator it = mapOfFrequency.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry<Character, Integer> pair = (Map.Entry<Character, Integer>)it.next();
+			if(pair.getValue()!=0){
+				return false;
 			}
-			
-		
-		
+		}
 		return true;
-
 	}
-	
-	
+
 	public boolean isAnagramUsingArrays(String firstString, String secondString) {
 		firstString = firstString.trim().replace(" ", "").toLowerCase();
 		secondString = secondString.trim().replace(" ", "").toLowerCase();
@@ -60,6 +50,6 @@ public class Anagrams {
 		char[] char2 = secondString.toCharArray();
 		Arrays.sort(char1);
 		Arrays.sort(char2);
-		return Arrays.equals(char1,char2);
+		return Arrays.equals(char1, char2);
 	}
 }
