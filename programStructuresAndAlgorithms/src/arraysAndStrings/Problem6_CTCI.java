@@ -7,7 +7,7 @@ public class Problem6_CTCI {
 	 * aabbbcccccaa => a2b3c5a2
 	 * abc => a1b1c1 => abc
  	 */
-	public String returnCompressedString(String inputString){
+	public static String returnCompressedString(String inputString){
 		
 		char current=inputString.charAt(0);
 		char prev = inputString.charAt(0);

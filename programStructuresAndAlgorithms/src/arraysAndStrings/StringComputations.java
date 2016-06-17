@@ -52,7 +52,7 @@ public class StringComputations {
 			}
 		}
 
-		throw new RuntimeException("No non-repeating character");
+		return '0';
 
 	}
 

@@ -7,7 +7,7 @@ public class Problem5_CTCI {
 	 * insert() remove()
 	 */
 
-	public boolean checkIfStringIfOneEditAway(String mainString, String editedString) {
+	public static boolean checkIfStringIfOneEditAway(String mainString, String editedString) {
 
 		int lengthDifference = Math.abs(mainString.length() - editedString.length());
 
@@ -29,7 +29,7 @@ public class Problem5_CTCI {
 	}
 
 	//replaced
-	public boolean sameLengthEdit(String mainString, String editedString) {
+	public static boolean sameLengthEdit(String mainString, String editedString) {
 		boolean foundDifference = false;
 		for (int i = 0; i < mainString.length(); i++) {
 			if (mainString.charAt(i) != editedString.charAt(i)) {
@@ -44,7 +44,7 @@ public class Problem5_CTCI {
 	}
 
 	//inserted or removed
-	public boolean insertedOrRemoved(String first, String second) {
+	public static boolean insertedOrRemoved(String first, String second) {
 
 		int index1 = 0;
 		int index2 = 0;

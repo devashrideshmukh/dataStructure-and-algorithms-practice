@@ -9,7 +9,7 @@ package arraysAndStrings;
  */
 public class Program9_CTCI {
 
-	public boolean isStringRotation(String s1, String s2) {
+	public static boolean isStringRotation(String s1, String s2) {
 		
 		s1 = s1.trim().replace(" ", "");
 		s2 = s2.trim().replace(" ", "");
@@ -22,7 +22,7 @@ public class Program9_CTCI {
 		return isSubstring(s1s1, s2);
 	}
 
-	public boolean isSubstring(String s1, String s2) {
+	public static boolean isSubstring(String s1, String s2) {
 		return s1.toLowerCase().contains(s2.toLowerCase());
 	}
 

@@ -1,5 +1,6 @@
 package test;
 
+import LinkedList.AddTwoNumbers;
 import LinkedList.LinkedList;
 import LinkedList.Node;
 import LinkedList.Problem1_CTCI;
@@ -63,14 +64,33 @@ public class RunnerLinkedList {
 		System.out.println("Middle node is "+problem3.findMiddleNodeAndDeleteIt(linkedList).getData());
 		linkedList.printAllElements();
 		
-		ReversingLinkedList rl = new ReversingLinkedList();
-		System.out.println("\nReversed list is : ");
-		rl.reverseLinkedList(linkedList);
-		linkedList.printAllElements();
-		linkedList.reverseLinkedListUsingRecursion(linkedList.getFirst());
-		linkedList.printAllElements();
+//		ReversingLinkedList rl = new ReversingLinkedList();
+//		System.out.println("\nReversed list is : ");
+//		rl.reverseLinkedList(linkedList);
+//		linkedList.printAllElements();
+//		linkedList.reverseLinkedListUsingRecursion(linkedList.getFirst());
+//		linkedList.printAllElements();
 		
 		System.out.println("\nTotal number of Nodes in the list:"+linkedList.numberOfNode());
+		
+		LinkedList l1 = new LinkedList();
+		l1.insertANodeAtLast(2);
+		l1.insertANodeAtLast(4);
+		l1.insertANodeAtLast(3);
+		
+		LinkedList l2 = new LinkedList();
+		l2.insertANodeAtLast(5);
+		l2.insertANodeAtLast(6);
+		l2.insertANodeAtLast(4);
+		AddTwoNumbers add = new AddTwoNumbers();
+		Node sumList = add.addTwoNumbersFromLinkedList(l1.getFirst(), l2.getFirst());
+		Node cur = sumList;
+		System.out.println("\nSum:"+"\n");
+		while(cur!=null){
+			System.out.print(cur.getData()+"==>");
+			cur=cur.getNext();
+		}
+		
 		
 	}
 	

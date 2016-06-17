@@ -9,7 +9,7 @@ public class Problem3_CTCI {
 	 */
 	
 	//solution1
-	public String urlify1(String inputString){
+	public static String urlify1(String inputString){
 		
 		int numberOfSpaces = 0 ;
 		
@@ -42,7 +42,7 @@ public class Problem3_CTCI {
 	}
 	
 	//solution2
-	public String urlify2(String inputString){
+	public static String urlify2(String inputString){
 		StringBuffer sb = new StringBuffer();
 		for(int i=0;i<inputString.length();i++){
 			if(inputString.charAt(i) == ' '){

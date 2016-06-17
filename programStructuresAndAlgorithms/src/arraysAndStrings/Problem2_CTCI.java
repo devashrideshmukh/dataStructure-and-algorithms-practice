@@ -13,7 +13,7 @@ public class Problem2_CTCI {
 	// the input strings should have same number of characters and each
 	// character must
 	// be present same number of times
-	public boolean checkPermutations1(String first, String second) {
+	public static boolean checkPermutations1(String first, String second) {
 
 		if (first.trim().length() != second.trim().length()) {
 			System.out.println("Lengths do not match");
@@ -46,7 +46,7 @@ public class Problem2_CTCI {
 	}
 
 	// solution2 sorting
-	public boolean checkPermutations2(String first, String second) {
+	public static boolean checkPermutations2(String first, String second) {
 
 		if (first.trim().length() != second.trim().length()) {
 			System.out.println("Lengths do not match");

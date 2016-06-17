@@ -9,7 +9,7 @@ public class Problem1_CTCI {
 	 * @param input
 	 * @return
 	 */
-	public boolean isCharacterUnique(String input){
+	public static boolean isCharacterUnique(String input){
 		
 		//take an array which stores true or false at the index of ascii value of character
 		boolean[] characterArray = new boolean[256];

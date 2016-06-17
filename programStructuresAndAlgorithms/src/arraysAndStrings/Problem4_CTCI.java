@@ -7,11 +7,11 @@ import java.util.Map;
 public class Problem4_CTCI {
 
 	/**
-	 * Checks if the given input string is a permutation of palindromes Take
-	 * hashmap for keeping frequency of characters All the frequencies should be
+	 * Checks if the given input string is a permutation of palindromes 
+	 * Take hashmap for keeping frequency of characters All the frequencies should be
 	 * even Only one odd frequency is allowed
 	 */
-	public boolean checkIfPermuationOfPalindrome(String input) {
+	public static boolean checkIfPermuationOfPalindrome(String input) {
 
 		input = input.trim().toLowerCase().replace(" ", "");
 
