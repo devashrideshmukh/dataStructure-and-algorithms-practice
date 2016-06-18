@@ -14,6 +14,7 @@ import arraysAndStrings.Problem5_CTCI;
 import arraysAndStrings.Problem6_CTCI;
 import arraysAndStrings.Problem7_CTCI;
 import arraysAndStrings.Program9_CTCI;
+import arraysAndStrings.RemoveDuplicatesFromArray;
 import arraysAndStrings.StringComputations;
 import arraysAndStrings.TwoSum;
 
@@ -78,19 +79,6 @@ public class RunnerArraysAndStrings {
 		OccurancesOfCharacter occ = new OccurancesOfCharacter();
 		System.out.println("Count of D in 'DevashriDeshmukh' "+occ.countOccurances("DevashriDeshmukh",'D'));
 		
-		Problem7_CTCI prob7 = new Problem7_CTCI();
-		int[][] matrix = {{1,2,3,4,5,6},{7,8,9,10,11,12},{13,14,15,16,17,18},{19,20,21,22,23,24},{25,26,27,28,29,30},{31,32,33,34,35,36}};
-		prob7.rotate(matrix, 6);
-		for(int i=0;i<matrix.length;i++){
-			for (int j = 0; j < matrix.length; j++) {
-				System.out.print(matrix[i][j]+"\t");
-			}
-			System.out.print("\n");
-		}
-		
-		
-		
-		
 		StringComputations stringComputations = new StringComputations();
 		System.out.println("'122' converted to integer : "+stringComputations.returnConvertedInteger("   122"));
 		System.out.println("'-122' converted to integer : "+stringComputations.returnConvertedInteger("-122"));
@@ -105,6 +93,52 @@ public class RunnerArraysAndStrings {
 		PrintMissingNumbers.printMissingNumbers(new int[]{1,2,3,5,6},7);
 		System.out.println("Missing Number");
 		PrintMissingNumbers.printMissingNumber(new int[]{1,2,3,5,6},6);
+		
+		int[] inputArray = {2,3,4,5,2,3,4,5,6,7,8,9,2};
+		int[] resultant = RemoveDuplicatesFromArray.removeDuplicatesFromArrayWithoutUsingCollection(inputArray);
+		System.out.println("\n");
+		for(int i=0;i<resultant.length;i++){
+			System.out.print(resultant[i]);
+		}
+		
+		Integer[] inputArray1 = {2,3,4,5,2,3,4,5,6,7,8,9,2};
+		Integer[] resultant1 = RemoveDuplicatesFromArray.removeDuplicatesFromArrayUsingCollection(inputArray1);
+		System.out.println("\n");
+		for(int i=0;i<resultant1.length;i++){
+			System.out.print(resultant1[i]);
+		}
+		
+		System.out.println("\n");
+		System.out.println("==================================================");
+		
+		Problem7_CTCI prob7 = new Problem7_CTCI();
+		int[][] matrix = {{1,2,3,4,5,6},{7,8,9,10,11,12},{13,14,15,16,17,18},{19,20,21,22,23,24},{25,26,27,28,29,30},{31,32,33,34,35,36}};
+		for(int i=0;i<matrix.length;i++){
+			for (int j = 0; j < matrix.length; j++) {
+				System.out.print(matrix[i][j]+"\t");
+			}
+			System.out.print("\n");
+		}
+		System.out.println("==========Clockwise========================================");
+		prob7.rotateClockwise(matrix, 6);
+		
+		for(int i=0;i<matrix.length;i++){
+			for (int j = 0; j < matrix.length; j++) {
+				System.out.print(matrix[i][j]+"\t");
+			}
+			System.out.print("\n");
+		}
+		System.out.println("==========Anticlockwise=================================");
+		prob7.rotateAnticlockwise(matrix, 6);
+		
+		for(int i=0;i<matrix.length;i++){
+			for (int j = 0; j < matrix.length; j++) {
+				System.out.print(matrix[i][j]+"\t");
+			}
+			System.out.print("\n");
+		}
+		
+		
 	}
 	
 }

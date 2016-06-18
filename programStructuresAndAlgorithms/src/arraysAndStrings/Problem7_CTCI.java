@@ -7,7 +7,11 @@ package arraysAndStrings;
  */
 public class Problem7_CTCI {
 	
-	public void rotate(int[][] matrix,int n){
+	
+	/*
+	 * Rotate image clockwise by 90 degrees
+	 */
+	public void rotateClockwise(int[][] matrix,int n){
 		for(int layer=0;layer<n/2;layer++){
 			int first = layer;
 			int last = n-1-layer;
@@ -18,6 +22,26 @@ public class Problem7_CTCI {
 				matrix[last-offset][first]=matrix[last][last-offset];
 				matrix[last][last-offset]=matrix[i][last];
 				matrix[i][last]=top;
+			}
+		}
+	}
+	
+	/**
+	 * Rotate matrix anticlockwise by 90 degree
+	 * @param matrix
+	 * @param n
+	 */
+	public void rotateAnticlockwise(int[][] matrix,int n){
+		for(int layer=0;layer<n/2;layer++){
+			int first = layer;
+			int last = n-1-layer;
+			for(int i=first;i<last;i++){
+				int offset = i-first;
+				int top=matrix[first][i];
+				matrix[first][i] = matrix[i][last];
+				matrix[i][last]=matrix[last][last-offset];
+				matrix[last][last-offset]=matrix[last-offset][first];
+				matrix[last-offset][first]=top;
 			}
 		}
 	}
