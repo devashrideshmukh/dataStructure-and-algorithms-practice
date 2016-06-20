@@ -1,8 +1,11 @@
 package arraysAndStrings;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class StringComputations {
 
@@ -31,6 +34,11 @@ public class StringComputations {
 		return convertedInteger;
 	}
 
+	/**
+	 * Return first non-repeating character
+	 * @param inputString
+	 * @return
+	 */
 	public char getFirstNonRepeatingCharacter(String inputString) {
 
 		// use linked hashmap as it preserves insertion order
@@ -55,5 +63,62 @@ public class StringComputations {
 		return '0';
 
 	}
+
+	/**
+	 * Find the length of longest substring without repeating characters
+	 * @param s
+	 * @return
+	 */
+	public int lengthOfLongestSubstring(String s) {
+		if(s==null || s.isEmpty()){
+			return 0;
+		}
+		int max =0;
+		int start = 0;
+		Set<Character> set = new HashSet<Character>();
+		for(int i=0;i<s.length();i++){
+			Character c = s.charAt(i);
+			if(set.contains(c)){
+				max=Math.max(max,set.size());
+				while(set.contains(c)){
+					set.remove(s.charAt(start));
+					start++;
+				}
+				set.add(c);
+			}else{
+				set.add(c);
+			}
+		}
+		
+		max=Math.max(max,set.size());
+		return max;
+	}
+	
+	/**
+	 * Reverse a string using iteration
+	 * @param inputString
+	 * @return
+	 */
+	public static String reverseStringUsingIterations(String inputString){
+		StringBuffer sb = new StringBuffer();
+		inputString=inputString.trim();
+		for(int i=inputString.length()-1;i>=0;i--){
+			sb.append(inputString.charAt(i));
+		}
+		return sb.toString(); 
+	}
+	
+	public static boolean checkIfStringContainsOnlyDigits(String inputString){
+		inputString = inputString.trim();
+		int initialLength = inputString.length();
+		String modified =inputString.replaceAll("[^0-9]", "");
+		System.err.println(modified);
+		if(modified.length()==initialLength){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 
 }

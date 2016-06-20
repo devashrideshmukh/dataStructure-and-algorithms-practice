@@ -3,6 +3,7 @@ package test;
 import java.util.Scanner;
 
 import problemsOnRecursion.PrintArrayRecursively;
+import problemsOnRecursion.ReverseAStringUsingRecursion;
 import problemsOnRecursion.SumOfNaturalNumbers;
 
 public class RunnerRecursion {
@@ -20,7 +21,7 @@ public class RunnerRecursion {
 		int number = scanner.nextInt();
 		System.out.println("Sum of "+number+"natural numbers is "+sum.getSumOfnNaturalNumbers(number));
 		
-		
+		System.out.println("reverse:"+ReverseAStringUsingRecursion.reverseAStringUsingRecursion("Devashri"));
 		
 	}
 }
