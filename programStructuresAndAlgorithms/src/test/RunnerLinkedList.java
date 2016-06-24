@@ -2,7 +2,11 @@ package test;
 
 import LinkedList.AddTwoNumbers;
 import LinkedList.LinkedList;
+import LinkedList.MiddleNode;
 import LinkedList.Node;
+import LinkedList.Problem1_CTCI_LL;
+import LinkedList.Problem2_CTCI_LL;
+import LinkedList.Problem3_CTCI_LL;
 import LinkedList.ReversingLinkedList;
 
 public class RunnerLinkedList {
@@ -62,7 +66,49 @@ public class RunnerLinkedList {
 			cur=cur.getNext();
 		}
 		
+		LinkedList l3 = new LinkedList();
+		l3.insertANodeAtLast(1);
+		l3.insertANodeAtLast(2);
+		l3.insertANodeAtLast(3);
+		l3.insertANodeAtLast(4);
+		Node node = MiddleNode.returnMiddleNode(l3.getFirst());
+		System.out.println("\nMiddle Node : " + node.getData());
 		
+		System.out.println("\n==============================CTCI=======================================");
+		System.out.println("\n==============================CTCI problem 1=======================================");
+		LinkedList link = new LinkedList();
+		link.insertANodeAtLast(6);
+		link.insertANodeAtLast(7);
+		link.insertANodeAtLast(1);
+		link.insertANodeAtLast(4);
+		link.insertANodeAtLast(6);
+		link.insertANodeAtLast(6);
+		link.insertANodeAtLast(4);
+		link.insertANodeAtLast(9);
+		link.printAllElements();
+		System.out.println("\nUsing Buffer");
+		Problem1_CTCI_LL.removeDuplicatesUsingBuffer(link.getFirst());
+		link.printAllElements();
+		link.insertANodeAtLast(4);
+		link.insertANodeAtLast(6);
+		link.insertANodeAtLast(6);
+		link.insertANodeAtLast(4);
+		link.insertANodeAtLast(9);
+		link.printAllElements();
+		System.out.println("\nWithout Using Buffer");
+		Problem1_CTCI_LL.removeDuplicatesWithoutUsingBuffer(link.getFirst());
+		link.printAllElements();
+		
+		System.out.println("\n==============================CTCI problem 2=======================================");
+		System.out.println("2nd last Node:"+Problem2_CTCI_LL.returnKthToLastNode(2, link.getFirst()).getData());
+		System.out.println("5th last Node:"+Problem2_CTCI_LL.returnKthToLastNode(5, link.getFirst()).getData());
+		System.out.println("last Node:"+Problem2_CTCI_LL.returnKthToLastNode(1, link.getFirst()).getData());
+		//System.out.println("6th last Node:"+Problem2_CTCI_LL.returnKthToLastNode(6, link.getFirst()).getData());
+		
+		System.out.println("\n==============================CTCI problem 3=======================================");
+		Node nodeRef = Problem3_CTCI_LL.returnANode(2, link.getFirst());
+		Problem3_CTCI_LL.deleteAReferredNode(nodeRef);
+		link.printAllElements();
 	}
 	
 }

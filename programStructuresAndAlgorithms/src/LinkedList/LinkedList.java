@@ -100,6 +100,10 @@ public class LinkedList {
 			return;
 		} else {
 			Node current = this.first;
+			if(current.next==null){
+			this.first = null;	
+			 return;    
+			}
 			while (current.next.next != null) {
 				current = current.next;
 			}

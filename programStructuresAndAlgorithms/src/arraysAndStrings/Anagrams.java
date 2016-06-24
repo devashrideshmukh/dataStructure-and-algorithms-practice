@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Check if two strings are anagrams of each other
@@ -33,7 +34,7 @@ public class Anagrams {
 			mapOfFrequency.put(secondChar, count2-1);
 		}
 		
-		Iterator it = mapOfFrequency.entrySet().iterator();
+		Iterator<Entry<Character, Integer>> it = mapOfFrequency.entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry<Character, Integer> pair = (Map.Entry<Character, Integer>)it.next();
 			if(pair.getValue()!=0){
