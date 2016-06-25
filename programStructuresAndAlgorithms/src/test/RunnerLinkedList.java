@@ -1,6 +1,7 @@
 package test;
 
 import LinkedList.AddTwoNumbers;
+import LinkedList.DoublyLinkedList;
 import LinkedList.LinkedList;
 import LinkedList.MiddleNode;
 import LinkedList.Node;
@@ -109,6 +110,38 @@ public class RunnerLinkedList {
 		Node nodeRef = Problem3_CTCI_LL.returnANode(2, link.getFirst());
 		Problem3_CTCI_LL.deleteAReferredNode(nodeRef);
 		link.printAllElements();
+		Problem3_CTCI_LL.deleteAReferredNode(link.getFirst());
+		link.printAllElements();
+		System.out.println("First is "+ link.getFirst().getData());
+		
+		
+		System.out.println("\n=============================DOUBLY LINKED LIST=====================================");
+		DoublyLinkedList dll1 = new DoublyLinkedList();
+		dll1.printDLL();
+		dll1.insertNodeAtFirst(4);
+		dll1.insertNodeAtFirst(6);
+		dll1.insertNodeAtFirst(1);
+		dll1.insertNodeAtLast(7);
+		dll1.printDLL();
+		dll1.insertNodeAtKthPosition(5, -1);
+		dll1.printDLL();
+		dll1.insertNodeAtKthPosition(9, 7);
+		dll1.printDLL();
+		dll1.insertNodeAtKthPosition(55, 4);
+		dll1.printDLL();
+		dll1.deleteFirst();
+		dll1.printDLL();
+		dll1.deleteLast();
+		dll1.printDLL();
+		dll1.deleteANodeWhoseReferenceIsGiven(dll1.getFirst().next);
+		dll1.printDLL();
+		dll1.deleteANodeWhoseReferenceIsGiven(dll1.getFirst());
+		dll1.printDLL();
+		dll1.deleteANodeWhoseReferenceIsGiven(dll1.getTail().previous);
+		dll1.printDLL();
+		dll1.deleteANodeWhoseReferenceIsGiven(dll1.getTail());
+		dll1.printDLL();
+		
 	}
 	
 }
