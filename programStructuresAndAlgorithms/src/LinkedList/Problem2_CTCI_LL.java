@@ -6,6 +6,12 @@ package LinkedList;
  */
 public class Problem2_CTCI_LL {
 	
+	/**
+	 * Hare and Turtle method
+	 * @param k
+	 * @param node
+	 * @return
+	 */
 	public static Node returnKthToLastNode(int k, Node node){
 		Node slow = node;
 		Node fast = node;
@@ -25,5 +31,6 @@ public class Problem2_CTCI_LL {
 		return slow;
 		
 	}
+
 	
 }
