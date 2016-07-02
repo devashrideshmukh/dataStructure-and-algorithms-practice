@@ -1,5 +1,7 @@
 package test;
 
+import java.util.Scanner;
+
 import javax.rmi.CORBA.Util;
 
 import arraysAndStrings.Anagrams;
@@ -88,6 +90,8 @@ public class RunnerArraysAndStrings {
 		System.out.println("'-122' converted to integer : " + stringComputations.returnConvertedInteger("-122"));
 		System.out.println("'-122a' converted to integer : " + stringComputations.returnConvertedInteger("-122a"));
 		System.out.println("'-aaaa' converted to integer : " + stringComputations.returnConvertedInteger("-aaaa"));
+
+		System.out.println("'-' converted to integer : " + stringComputations.returnConvertedInteger("-"));
 		System.out.println(
 				"First non-repeating character " + stringComputations.getFirstNonRepeatingCharacter("devashri"));
 		System.out.println(
@@ -159,6 +163,10 @@ public class RunnerArraysAndStrings {
 		FlipMatrix.flipItVerticalAxis(matrix2);
 		System.out.println("==================================================");
 		Utility.printMatrix(matrix2);
+		
+		Scanner reader = new Scanner(System.in);
+		System.out.println("No of vowels : "+ StringComputations.numberOfVowels(reader.nextLine()));
+		
 	}
 
 }

@@ -1,13 +1,6 @@
 package test;
 
-import LinkedList.AddTwoNumbers;
-import LinkedList.DoublyLinkedList;
-import LinkedList.LinkedList;
-import LinkedList.MiddleNode;
-import LinkedList.Node;
-import LinkedList.Problem1_CTCI_LL;
-import LinkedList.Problem2_CTCI_LL;
-import LinkedList.Problem3_CTCI_LL;
+import LinkedList.*;
 import LinkedList.ReversingLinkedList;
 
 public class RunnerLinkedList {
@@ -50,14 +43,14 @@ public class RunnerLinkedList {
 		System.out.println("\nTotal number of Nodes in the list:"+linkedList.numberOfNode());
 		
 		LinkedList l1 = new LinkedList();
+		l1.insertANodeAtLast(7);
 		l1.insertANodeAtLast(2);
-		l1.insertANodeAtLast(4);
-		l1.insertANodeAtLast(3);
+		l1.insertANodeAtLast(8);
 		
 		LinkedList l2 = new LinkedList();
-		l2.insertANodeAtLast(5);
-		l2.insertANodeAtLast(6);
-		l2.insertANodeAtLast(4);
+		l2.insertANodeAtLast(7);
+		l2.insertANodeAtLast(7);
+		l2.insertANodeAtLast(1);
 		AddTwoNumbers add = new AddTwoNumbers();
 		Node sumList = add.addTwoNumbersFromLinkedList(l1.getFirst(), l2.getFirst());
 		Node cur = sumList;
@@ -112,7 +105,29 @@ public class RunnerLinkedList {
 		link.printAllElements();
 		Problem3_CTCI_LL.deleteAReferredNode(link.getFirst());
 		link.printAllElements();
-		System.out.println("First is "+ link.getFirst().getData());
+			
+		System.out.println("\n==============================CTCI problem 4=======================================");
+		LinkedList newList = new LinkedList();
+		newList.insertANodeAtLast(1);
+		newList.insertANodeAtLast(4);
+		newList.insertANodeAtLast(3);
+		newList.insertANodeAtLast(2);
+		newList.insertANodeAtLast(5);
+		newList.insertANodeAtLast(2);
+		Node part = Problem4_CTCI_LL.partition(newList.getFirst(), 3);
+		while(part!=null){
+			System.out.print(part.getData()+"==>");
+			part=part.getNext();
+		}
+		
+		System.out.println("\n==============================CTCI problem 5=======================================");
+		Node list = Problem5_CTCI_LL.addLists(l1.getFirst(), l2.getFirst());
+		Node current = list;
+		System.out.println("\nSum:"+"\n");
+		while(current!=null){
+			System.out.print(current.getData()+"==>");
+			current=current.getNext();
+		}
 		
 		
 		System.out.println("\n=============================DOUBLY LINKED LIST=====================================");
@@ -141,6 +156,30 @@ public class RunnerLinkedList {
 		dll1.printDLL();
 		dll1.deleteANodeWhoseReferenceIsGiven(dll1.getTail());
 		dll1.printDLL();
+		
+		System.out.println("\n=============================Reversing linked list=====================================");
+		
+		ReversingLinkedList rev = new ReversingLinkedList();
+		System.out.println("Original linked list");
+		l1.printAllElements();
+		System.out.println("\nIterative Approach");
+		rev.reverseLinkedList(l1);
+		System.out.println("Reversed linked list");
+		l1.printAllElements();
+		System.out.println("\nRecursive Approach");
+		rev.reverseLinkedList(l1, l1.getFirst());
+		l1.printAllElements();
+		rev.printLinkedListInReverseOrder(l1.getFirst());
+		
+		System.out.println("\n=============================Stack Using linked list=====================================");
+		StackUsingLinkedList stack = new StackUsingLinkedList();
+		stack.push(1);
+		stack.push(2);
+		System.out.println("Popping"+stack.pop().getData());
+		System.out.println("peeking"+stack.peek().getData());
+		System.out.println("Popping"+stack.pop().getData());
+		stack.push(3);
+		System.out.println("peeking"+stack.peek().getData());
 		
 	}
 	

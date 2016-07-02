@@ -15,6 +15,11 @@ public class StringComputations {
 		boolean isNegative = false;
 		inputString = inputString.trim();
 		if (inputString.matches("[0-9-]+")) {
+
+			if ((inputString.charAt(0) == '-' || inputString.charAt(0) == '+') && inputString.length() == 1) {
+				return 0;
+			}
+
 			if (inputString.charAt(0) == '-') {
 				isNegative = true;
 				inputString = inputString.substring(1);
@@ -36,6 +41,7 @@ public class StringComputations {
 
 	/**
 	 * Return first non-repeating character
+	 * 
 	 * @param inputString
 	 * @return
 	 */
@@ -66,59 +72,80 @@ public class StringComputations {
 
 	/**
 	 * Find the length of longest substring without repeating characters
+	 * 
 	 * @param s
 	 * @return
 	 */
 	public int lengthOfLongestSubstring(String s) {
-		if(s==null || s.isEmpty()){
+		if (s == null || s.isEmpty()) {
 			return 0;
 		}
-		int max =0;
+		int max = 0;
 		int start = 0;
 		Set<Character> set = new HashSet<Character>();
-		for(int i=0;i<s.length();i++){
+		for (int i = 0; i < s.length(); i++) {
 			Character c = s.charAt(i);
-			if(set.contains(c)){
-				max=Math.max(max,set.size());
-				while(set.contains(c)){
+			if (set.contains(c)) {
+				max = Math.max(max, set.size());
+				while (set.contains(c)) {
 					set.remove(s.charAt(start));
 					start++;
 				}
 				set.add(c);
-			}else{
+			} else {
 				set.add(c);
 			}
 		}
-		
-		max=Math.max(max,set.size());
+
+		max = Math.max(max, set.size());
 		return max;
 	}
-	
+
 	/**
 	 * Reverse a string using iteration
+	 * 
 	 * @param inputString
 	 * @return
 	 */
-	public static String reverseStringUsingIterations(String inputString){
+	public static String reverseStringUsingIterations(String inputString) {
 		StringBuffer sb = new StringBuffer();
-		inputString=inputString.trim();
-		for(int i=inputString.length()-1;i>=0;i--){
+		inputString = inputString.trim();
+		for (int i = inputString.length() - 1; i >= 0; i--) {
 			sb.append(inputString.charAt(i));
 		}
-		return sb.toString(); 
+		return sb.toString();
 	}
-	
-	public static boolean checkIfStringContainsOnlyDigits(String inputString){
+
+	public static boolean checkIfStringContainsOnlyDigits(String inputString) {
 		inputString = inputString.trim();
 		int initialLength = inputString.length();
-		String modified =inputString.replaceAll("[^0-9]", "");
+		String modified = inputString.replaceAll("[^0-9]", "");
 		System.err.println(modified);
-		if(modified.length()==initialLength){
+		if (modified.length() == initialLength) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-	
+
+	public static int numberOfVowels(String inputString) {
+		inputString = inputString.trim();
+		int count = 0;
+		for (int i = 0; i < inputString.length(); i++) {
+			char charAtI = inputString.charAt(i);
+			switch (charAtI) {
+			case 'a':
+			case 'e':
+			case 'i':
+			case 'o':
+			case 'u':
+				count++;
+				break;
+			default: 
+				
+			}
+		}
+		return count;
+	}
 
 }

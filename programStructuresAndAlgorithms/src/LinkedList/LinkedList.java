@@ -120,7 +120,6 @@ public class LinkedList {
 			System.out.println("List is empty");
 			return;
 		} else {
-			System.out.println("\n");
 			while (current != null) {
 				buffer.append(current.data);
 				buffer.append("==>");
@@ -135,18 +134,7 @@ public class LinkedList {
 
 		System.out.println(buffer.toString());
 	}
+
 	
-	public void reverseLinkedListUsingRecursion(Node node){
-		
-		Node head ;
-		Node restOfTheList = first.next;
-		if(restOfTheList==null)return;
-		reverseLinkedListUsingRecursion(restOfTheList);
-		first.next.next=first;
-		first.next=null;
-		this.first=restOfTheList;
-		
-	
-	}
 
 }
