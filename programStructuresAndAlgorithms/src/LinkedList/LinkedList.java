@@ -8,7 +8,7 @@ public class LinkedList {
 	public LinkedList() {
 		first = null;
 	}
-	
+
 	public Node getFirst() {
 		return first;
 	}
@@ -100,9 +100,9 @@ public class LinkedList {
 			return;
 		} else {
 			Node current = this.first;
-			if(current.next==null){
-			this.first = null;	
-			 return;    
+			if (current.next == null) {
+				this.first = null;
+				return;
 			}
 			while (current.next.next != null) {
 				current = current.next;
@@ -110,7 +110,7 @@ public class LinkedList {
 			current.next = null;
 		}
 	}
-	
+
 	// print all linked list elements
 	public void printAllElements() {
 
@@ -134,7 +134,5 @@ public class LinkedList {
 
 		System.out.println(buffer.toString());
 	}
-
-	
 
 }
