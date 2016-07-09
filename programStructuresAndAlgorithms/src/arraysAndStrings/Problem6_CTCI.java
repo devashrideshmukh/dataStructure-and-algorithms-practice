@@ -9,6 +9,13 @@ public class Problem6_CTCI {
  	 */
 	public static String returnCompressedString(String inputString){
 		
+		if (inputString==null || inputString.length()==0) {
+			return null;
+		}
+		
+		inputString = inputString.trim().replace(" ", "");
+		
+		
 		char current=inputString.charAt(0);
 		char prev = inputString.charAt(0);
 		StringBuffer sb = new StringBuffer();
