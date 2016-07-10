@@ -11,13 +11,14 @@ public class ReversingLinkedList {
 	 * Reversing a linked list
 	 */
 	public void reverseLinkedList(LinkedList list){
-		Node current = list.first;
+		
 		Node prev = null;
 		Node nextNode;
 		if(list.isEmpty()){
 			System.out.println("List is empty");
 			return;
 		}else{
+			Node current = list.first;
 			while(current!=null){
 				nextNode = current.next;
 				current.next = prev;

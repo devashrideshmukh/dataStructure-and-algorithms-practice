@@ -43,6 +43,12 @@ public class Problem7_CTCI_LL {
 		return null;
 	}
 
+	/**
+	 * Brute - force
+	 * @param headA
+	 * @param headB
+	 * @return
+	 */
 	public Node findIntersectionWithoutUsingExtraDataStructure(Node headA, Node headB) {
 		 int lengthA = 0;
 	        Node tempA = headA;
