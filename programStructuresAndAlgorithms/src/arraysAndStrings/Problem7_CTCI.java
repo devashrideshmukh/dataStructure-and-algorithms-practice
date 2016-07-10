@@ -8,8 +8,11 @@ package arraysAndStrings;
  */
 public class Problem7_CTCI {
 
-	/*
-	 * Rotate image clockwise by 90 degrees
+	/**
+	 * Rotate matrix clockwise by 90 degree
+	 * 
+	 * @param matrix
+	 * @param n
 	 */
 	public static void rotateClockwise(int[][] matrix,int n){
 		for(int layer=0;layer<n/2;++layer){
