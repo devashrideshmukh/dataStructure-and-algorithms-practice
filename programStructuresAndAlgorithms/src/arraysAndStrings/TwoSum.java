@@ -36,6 +36,8 @@ public class TwoSum {
 	//one pass
 	//complexity O(N)
 	public int[] twoSumOnePass(int[] nums, int target) {
+		
+		//maps for number and its index
 		HashMap<Integer,Integer> map = new HashMap<>();
 		int[] result = new int[2];
 		for(int i=0;i<nums.length;i++){

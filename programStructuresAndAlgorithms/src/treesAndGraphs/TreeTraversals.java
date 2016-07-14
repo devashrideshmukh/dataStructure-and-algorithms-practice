@@ -1,7 +1,9 @@
 package treesAndGraphs;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 public class TreeTraversals {
@@ -11,9 +13,9 @@ public class TreeTraversals {
 	 * 
 	 * @param root
 	 */
-	public void preOrderTraversal(TreeNode root) {
+	public static void preOrderTraversal(TreeNode root) {
 		if (root != null) {
-			System.out.println(root.key + " ");
+			System.out.print(root.key + " ");
 			preOrderTraversal(root.leftChild);
 			preOrderTraversal(root.rightChild);
 		}
@@ -25,7 +27,7 @@ public class TreeTraversals {
 	 * @param root
 	 * @return
 	 */
-	public List<Integer> preorderTraversal(TreeNode root) {
+	public static List<Integer> preorderTraversal(TreeNode root) {
 		List<Integer> list = new ArrayList<Integer>();
 
 		if (root == null) {
@@ -59,13 +61,13 @@ public class TreeTraversals {
 	 * @param root
 	 * @return
 	 */
-	public List<Integer> preorderTraversalRecursion(TreeNode root) {
+	public static List<Integer> preorderTraversalRecursion(TreeNode root) {
 		List<Integer> list = new ArrayList<Integer>();
 		recPre(root, list);
 		return list;
 	}
 
-	public void recPre(TreeNode node, List<Integer> list) {
+	public static void recPre(TreeNode node, List<Integer> list) {
 		if (node != null) {
 			list.add(node.key);
 			recPre(node.leftChild, list);
@@ -78,10 +80,10 @@ public class TreeTraversals {
 	 * 
 	 * @param root
 	 */
-	public void inOrderTraversal(TreeNode root) {
+	public static void inOrderTraversal(TreeNode root) {
 		if (root != null) {
 			inOrderTraversal(root.leftChild);
-			System.out.println(root);
+			System.out.print(root.key + " ");
 			inOrderTraversal(root.rightChild);
 		}
 	}
@@ -91,13 +93,13 @@ public class TreeTraversals {
 	 * 
 	 * @param root
 	 */
-	public List<Integer> inorderTraversal(TreeNode root) {
+	public static List<Integer> inorderTraversal(TreeNode root) {
 		List<Integer> list = new ArrayList<>();
 		recInorder(root, list);
 		return list;
 	}
 
-	public void recInorder(TreeNode node, List<Integer> list) {
+	public static void recInorder(TreeNode node, List<Integer> list) {
 		if (node != null) {
 			recInorder(node.leftChild, list);
 			list.add(node.key);
@@ -106,7 +108,7 @@ public class TreeTraversals {
 
 	}
 
-	public List<Integer> inorderTraversalIteration(TreeNode root) {
+	public static List<Integer> inorderTraversalIteration(TreeNode root) {
 
 		List<Integer> list = new ArrayList<Integer>();
 
@@ -141,22 +143,22 @@ public class TreeTraversals {
 	 * 
 	 * @param root
 	 */
-	public void preOrderTraversalRecursion(TreeNode root) {
+	public static void postOrderTraversalRecursion(TreeNode root) {
 		if (root != null) {
 
-			preOrderTraversal(root.leftChild);
-			preOrderTraversal(root.rightChild);
-			System.out.println(root.key + " ");
+			postOrderTraversalRecursion(root.leftChild);
+			postOrderTraversalRecursion(root.rightChild);
+			System.out.print(root.key + " ");
 		}
 	}
 
-	public List<Integer> postorderTraversal(TreeNode root) {
+	public static List<Integer> postorderTraversal(TreeNode root) {
 		List<Integer> list = new ArrayList<Integer>();
 		recPost(root, list);
 		return list;
 	}
 
-	public void recPost(TreeNode node, List<Integer> list) {
+	public static void recPost(TreeNode node, List<Integer> list) {
 		if (node != null) {
 			recPost(node.leftChild, list);
 			recPost(node.rightChild, list);
@@ -165,7 +167,7 @@ public class TreeTraversals {
 		}
 	}
 
-	public List<Integer> postorderTraversalIterative(TreeNode root) {
+	public static List<Integer> postorderTraversalIterative(TreeNode root) {
 		List<Integer> list = new ArrayList<Integer>();
 
 		if (root == null) {
@@ -198,5 +200,30 @@ public class TreeTraversals {
 		return list;
 
 	}
+
+	public static void levelOrderTraversal(TreeNode root) {
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		if (root == null) {
+			return;
+		}
+
+		queue.add(root);
+
+		while (!queue.isEmpty()) {
+			TreeNode node = queue.remove();
+			System.out.print(node.key + " ");
+
+			if (node.leftChild != null) {
+				queue.add(node.leftChild);
+			}
+
+			if (node.rightChild != null) {
+				queue.add(node.rightChild);
+			}
+		}
+
+	}
+
+	
 
 }

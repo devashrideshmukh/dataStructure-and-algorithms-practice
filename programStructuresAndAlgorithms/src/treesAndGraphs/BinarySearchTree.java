@@ -2,7 +2,7 @@ package treesAndGraphs;
 
 public class BinarySearchTree {
 
-	private TreeNode root;
+	TreeNode root;
 
 	/**
 	 * Time - O(logN)
@@ -32,8 +32,43 @@ public class BinarySearchTree {
 		}
 	}
 
-	public void insertATreeNode() {
+	public void insertATreeNode(int value) {
+		TreeNode nodeToBeInserted = new TreeNode(value);
 		
+		if(root==null){
+			this.root = nodeToBeInserted;
+		}else{
+			TreeNode current = root;
+			TreeNode parent;
+			while(true){
+				parent = current;
+				
+				if(value<current.key){
+					
+					//go left
+					current = current.leftChild;
+					if(current==null){
+						parent.leftChild=nodeToBeInserted;
+						return;
+					}
+					
+				}else{
+					
+					//go right
+					current = current.rightChild;
+					if(current==null){
+						parent.rightChild=nodeToBeInserted;
+						return;
+					}
+					
+				}
+			}
+		}
+		
+	}
+	
+	public TreeNode getRoot() {
+		return root;
 	}
 
 	public void delete(int id) {

@@ -8,6 +8,8 @@ public class TreeNode {
 
 	public TreeNode(int key) {
 		this.key = key;
+		this.leftChild=null;
+		this.rightChild=null;
 	}
 
 	public void displayTreeNode(){
