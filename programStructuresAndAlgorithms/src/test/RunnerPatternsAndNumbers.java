@@ -1,6 +1,7 @@
 package test;
 
 import PatternsAndNumbers.NumericalPatterns;
+import PatternsAndNumbers.ReverseInteger;
 import PatternsAndNumbers.StarPatterns;
 
 public class RunnerPatternsAndNumbers {
@@ -21,6 +22,8 @@ public class RunnerPatternsAndNumbers {
 		StarPatterns.printStarDiamond(7);
 		System.out.println("------------------------\n");
 		NumericalPatterns.printNumericalDiamond(11);
+		
+		System.out.println(ReverseInteger.reverseInt(321));
 	}
 	
 }
