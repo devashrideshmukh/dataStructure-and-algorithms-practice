@@ -167,6 +167,12 @@ public class TreeTraversals {
 		}
 	}
 
+	/**
+	 * Post odrder iterative
+	 * 
+	 * @param root
+	 * @return
+	 */
 	public static List<Integer> postorderTraversalIterative(TreeNode root) {
 		List<Integer> list = new ArrayList<Integer>();
 
@@ -201,6 +207,11 @@ public class TreeTraversals {
 
 	}
 
+	/**
+	 * Simple level order traversal
+	 * 
+	 * @param root
+	 */
 	public static void levelOrderTraversal(TreeNode root) {
 		Queue<TreeNode> queue = new LinkedList<TreeNode>();
 		if (root == null) {
@@ -224,6 +235,82 @@ public class TreeTraversals {
 
 	}
 
+	/**
+	 * Level order traversal which returns arraylist of lists where each list
+	 * represents a level
+	 * 
+	 * @param root
+	 * @return
+	 */
+	public ArrayList<ArrayList<Integer>> levelOrder(TreeNode root) {
+
+		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> intermediateList = new ArrayList<Integer>();
+
+		if (root == null) {
+			return list;
+		}
+
+		LinkedList<TreeNode> current = new LinkedList<TreeNode>();
+		current.add(root);
+		LinkedList<TreeNode> next = new LinkedList<TreeNode>();
+
+		while (!current.isEmpty()) {
+			TreeNode temp = current.remove();
+			if (temp.leftChild != null) {
+				next.add(temp);
+			}
+
+			if (temp.rightChild != null) {
+				next.add(temp);
+			}
+
+			intermediateList.add(temp.key);
+
+			if (current.isEmpty()) {
+				list.add(intermediateList);
+				current = next;
+				next = new LinkedList<TreeNode>();
+				intermediateList = new ArrayList<Integer>();
+			}
+
+		}
+
+		return list;
+
+	}
 	
+	/**
+	 * Reversed level order traversal 
+	 * @param root
+	 */
+	public void levelOrderReversed(TreeNode root){
+		if(root==null){
+			return;
+		}
+		
+		Queue<TreeNode> q = new LinkedList<>();
+		Stack<TreeNode> stack = new Stack<>();
+		q.add(root);
+		while(!q.isEmpty()){
+			TreeNode temp = q.poll();
+			
+			if(temp.rightChild!=null){
+				q.add(temp.rightChild);
+			}
+			
+			if(temp.leftChild!=null){
+				q.add(temp.leftChild);
+			}
+			
+			stack.push(temp);
+		}
+		
+		while(!stack.isEmpty()){
+			System.out.println(stack.pop().key);
+		}
+		
+		
+	}
 
 }
