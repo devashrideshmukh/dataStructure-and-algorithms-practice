@@ -1,6 +1,9 @@
 package test;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 import javax.rmi.CORBA.Util;
 
@@ -130,6 +133,12 @@ public class RunnerArraysAndStrings {
 		Utility.printSquareMatrix(matrix);
 		System.out.println("==========Anticlockwise=================================");
 		Problem7_CTCI.rotateAnticlockwise(matrix, 6);
+		Utility.printSquareMatrix(matrix);
+		System.out.println("==========Clockwise-TRANSPOSE METHOD=================================");
+		Problem7_CTCI.rotateClockwiseNew(matrix);
+		Utility.printSquareMatrix(matrix);
+		System.out.println("==========Anti clockwise-TRANSPOSE METHOD=================================");
+		Problem7_CTCI.rotateAntiClockwiseNew(matrix);
 		Utility.printSquareMatrix(matrix);
 
 		System.out.println("==========Zero matrix problem=================================");

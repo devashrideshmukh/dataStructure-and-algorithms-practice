@@ -16,19 +16,15 @@ public class InsertionSort {
 		
 		for(int i=1;i<arrayToBeSorted.length;i++){
 			
-			//==N-1==//
-			int value = arrayToBeSorted[i];
+			int val = arrayToBeSorted[i];
 			int hole = i;
-			//======//
 			
-			//depends on inputs
-			while(hole>0 && arrayToBeSorted[hole-1]>value){
+			while(hole>0 && val<arrayToBeSorted[hole-1]){
 				arrayToBeSorted[hole] = arrayToBeSorted[hole-1];
 				hole--;
 			}
 			
-			//==N-1==//
-			arrayToBeSorted[hole] = value;
+			arrayToBeSorted[hole] = val;
 		}
 		
 	}

@@ -2,6 +2,7 @@ package test;
 
 import java.util.Scanner;
 
+import PatternsAndNumbers.Power;
 import sequenceAndSeries.FactorialCalculations;
 import sequenceAndSeries.FibonacciSeries;
 import sequenceAndSeries.TriangularNumbers;
@@ -17,7 +18,7 @@ public class RunnerSequenceAndSeries {
 		FactorialCalculations fact = new FactorialCalculations();
 		System.out.println("Factorial : "+fact.findFactorial(6));
 		System.out.println("Factorial : "+fact.findFactorialUsingRecursion(6));
-		
+		System.out.println("Power:" + Power.pow(2, 3));
 		FibonacciSeries fbs=new FibonacciSeries();
 		fbs.printFibonacciSeries(6);
 		
@@ -26,6 +27,8 @@ public class RunnerSequenceAndSeries {
 		int number = scanner.nextInt();
 		
 		fbs.printFibonacciSeriesWithRecursion(number);
+		
+		
 	}
 
 }

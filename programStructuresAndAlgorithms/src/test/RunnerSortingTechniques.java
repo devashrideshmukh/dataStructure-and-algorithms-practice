@@ -2,6 +2,7 @@ package test;
 
 import sortingTechniques.BubbleSort;
 import sortingTechniques.InsertionSort;
+import sortingTechniques.MergeSort;
 import sortingTechniques.SelectionSort;
 
 public class RunnerSortingTechniques {
@@ -20,6 +21,11 @@ public class RunnerSortingTechniques {
 		int[] c = {5,7,3,1,8,9,4,3,-2,-8,3};
 		InsertionSort.sort(c);
 		System.out.println("\nInsertion Sort:");
+		RunnerSortingTechniques.display(c);
+		
+		int[] d = {5,7,3,1,8,9,4,3,-2,-8,3};
+		MergeSort.sort(d);
+		System.out.println("\nMerge Sort:");
 		RunnerSortingTechniques.display(c);
 	}
 	
