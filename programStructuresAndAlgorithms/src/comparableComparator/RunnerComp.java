@@ -18,6 +18,8 @@ public class RunnerComp {
 		list.add(p2);
 		list.add(p3);
 		list.add(p4);
+		
+		
 		Collections.sort(list);
 		for(Product p:list){
 			System.out.println(p.getProductName());

@@ -50,8 +50,23 @@ public class Product implements Comparable<Product>{
 	@Override
 	public int compareTo(Product p) {
 		// TODO Auto-generated method stub
+//		int s1 = this.productName.length();
+//		int s2 = p.productName.length();
+//		
+//		if(s1<s2){
+//			return -1;
+//		}else if(s1>s2){
+//			return 1;
+//		}else{
+//			return 0;
+//		}
+		
 		return this.productName.compareTo(p.productName);
 	}
+	
+	
+	
+	
 	
 	
 	

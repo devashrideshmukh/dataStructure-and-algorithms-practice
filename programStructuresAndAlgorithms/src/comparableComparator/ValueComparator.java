@@ -3,6 +3,22 @@ package comparableComparator;
 import java.util.Comparator;
 import java.util.HashMap;
 
+/**
+ * Steps to sort HashMap by values
+ * 1) Write a ValueComparator which implements Comparator<Key>
+ * 2) In ValueComparator
+ * 		a) Take local map attribute
+ * 		b) Write a contructor which takes map as input, and putAll() map into local
+ * 		c) Write compare method, comparing values obtained from Strings given as input
+ * 3) In runner, create an object of ValueComparator and pass mapToBeSorted into it
+ * 4) Create a sorted map, TreeMap, passing comparator obj to its constructor
+ * 5) treemapObj.putAll(mapToBeSorted);
+ * 
+ * @author Devashri
+ *
+ */
+
+
 public class ValueComparator implements Comparator<String>{
 
 	HashMap<String,Integer> map = new HashMap<String,Integer>();
