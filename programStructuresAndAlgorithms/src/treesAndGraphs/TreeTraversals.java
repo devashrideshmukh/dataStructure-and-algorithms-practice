@@ -168,7 +168,7 @@ public class TreeTraversals {
 	}
 
 	/**
-	 * Post odrder iterative
+	 * Post order iterative
 	 * 
 	 * @param root
 	 * @return
@@ -242,7 +242,7 @@ public class TreeTraversals {
 	 * @param root
 	 * @return
 	 */
-	public ArrayList<ArrayList<Integer>> levelOrder(TreeNode root) {
+	public static ArrayList<ArrayList<Integer>> levelOrder(TreeNode root) {
 
 		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
 		ArrayList<Integer> intermediateList = new ArrayList<Integer>();
@@ -258,11 +258,11 @@ public class TreeTraversals {
 		while (!current.isEmpty()) {
 			TreeNode temp = current.remove();
 			if (temp.leftChild != null) {
-				next.add(temp);
+				next.add(temp.leftChild);
 			}
 
 			if (temp.rightChild != null) {
-				next.add(temp);
+				next.add(temp.rightChild);
 			}
 
 			intermediateList.add(temp.key);
@@ -275,42 +275,131 @@ public class TreeTraversals {
 			}
 
 		}
-
+		System.out.println(list);
 		return list;
 
 	}
-	
+
 	/**
-	 * Reversed level order traversal 
+	 * Reversed level order traversal
+	 * 
 	 * @param root
 	 */
-	public void levelOrderReversed(TreeNode root){
-		if(root==null){
+	public void levelOrderReversed(TreeNode root) {
+		if (root == null) {
 			return;
 		}
-		
+
 		Queue<TreeNode> q = new LinkedList<>();
 		Stack<TreeNode> stack = new Stack<>();
 		q.add(root);
-		while(!q.isEmpty()){
+		while (!q.isEmpty()) {
 			TreeNode temp = q.poll();
-			
-			if(temp.rightChild!=null){
+
+			if (temp.rightChild != null) {
 				q.add(temp.rightChild);
 			}
-			
-			if(temp.leftChild!=null){
+
+			if (temp.leftChild != null) {
 				q.add(temp.leftChild);
 			}
-			
+
 			stack.push(temp);
 		}
-		
-		while(!stack.isEmpty()){
+
+		while (!stack.isEmpty()) {
 			System.out.println(stack.pop().key);
 		}
-		
-		
+
 	}
+
+	public static int height(TreeNode node) {
+		if (node == null) {
+			return 0;
+		} else {
+			int leftHeight = height(node.leftChild);
+			int rightHeight = height(node.rightChild);
+			return Math.max(leftHeight, rightHeight) + 1;
+
+		}
+
+	}
+	
+	public static ArrayList<ArrayList<Integer>> levelOrderRecursive(TreeNode node){
+		ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+		int height = height(node);
+		for(int i=1;i<=height;i++){
+			ArrayList<Integer> interMediateList = new ArrayList<>();
+			getLevel(node,i,interMediateList);
+			list.add(interMediateList);
+		}
+		return list;
+	}
+	
+	public static void getLevel(TreeNode node,int level,ArrayList<Integer> list){
+		
+		if(node==null){
+			return;
+		}
+		
+		if(level==1){
+			list.add(node.key);
+		}else if(level>1){
+			getLevel(node.leftChild, level-1, list);
+			getLevel(node.rightChild, level-1, list);
+		}
+	}
+	
+	  public static ArrayList<ArrayList<Integer>> zigzagLevelOrder(TreeNode root) {
+	        
+		  ArrayList<ArrayList<Integer>> al = new ArrayList<ArrayList<Integer>>();
+		  ArrayList<Integer> list = new ArrayList<Integer>();
+	        
+	        if(root==null){
+	            return al;
+	        }
+	        
+	        Stack<TreeNode> stackEven = new Stack<TreeNode>();
+	        Stack<TreeNode> stackOdd = new Stack<TreeNode>();
+	        
+	        stackOdd.push(root);
+	        
+	        while(!stackOdd.isEmpty() || !stackEven.isEmpty()){
+	           
+	           while(!stackOdd.isEmpty()){
+	               TreeNode n = stackOdd.pop();
+	               list.add(n.key);
+	               if(n.leftChild!=null){
+	                   stackEven.push(n.leftChild);
+	               }
+	               
+	               if(n.rightChild!=null){
+	                   stackEven.push(n.rightChild);
+	               }
+	           }
+	           al.add(list);
+	           list=new ArrayList<Integer>();
+	           
+	            while(!stackEven.isEmpty()){
+	               TreeNode n = stackEven.pop();
+	               list.add(n.key);
+	               if(n.rightChild!=null){
+	                   stackOdd.push(n.rightChild);
+	               }
+	               
+	               if(n.leftChild!=null){
+	                   stackOdd.push(n.leftChild);
+	               }
+	               
+	           }
+	           
+	           al.add(list);
+	           list=new ArrayList<Integer>();
+	           
+	        }
+	        
+	        return al;
+	        
+	    }
 
 }

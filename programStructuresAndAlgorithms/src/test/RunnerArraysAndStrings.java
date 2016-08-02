@@ -6,12 +6,12 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
-
-import javax.rmi.CORBA.Util;
+import java.util.*;
 
 import arraysAndStrings.Anagrams;
 import arraysAndStrings.DuplicateElements;
 import arraysAndStrings.FlipMatrix;
+import arraysAndStrings.MaxRepitition;
 import arraysAndStrings.OccurancesOfCharacter;
 import arraysAndStrings.PalindromeString;
 import arraysAndStrings.PrintMissingNumbers;
@@ -30,11 +30,11 @@ import arraysAndStrings.TwoSum;
 import utilityPackage.Utility;
 
 public class RunnerArraysAndStrings {
+	
 
 	public static void main(String[] args) {
 
 		// ===================ARRAYS AND STRINGS===============================================//
-
 		System.out.println("Problem 1: " + Problem1_CTCI.isCharacterUnique("Devashri"));
 		System.out.println("Problem 1: " + Problem1_CTCI.isCharacterUnique("DevashriD"));
 		System.out.println("Problem 1: " + Problem1_CTCI.isCharacterUnique(""));
@@ -174,7 +174,7 @@ public class RunnerArraysAndStrings {
 		FlipMatrix.flipItVerticalAxis(matrix2);
 		System.out.println("==================================================");
 		Utility.printMatrix(matrix2);
-		
+		System.out.println("Max rep"+MaxRepitition.getMaxRepetition(new int[] {3,1,2,2,3,4,4,4}));
 		Scanner reader = new Scanner(System.in);
 		System.out.println("No of vowels : "+ StringComputations.numberOfVowels(reader.nextLine()));
 		

@@ -33,34 +33,28 @@ public class BinarySearchTree {
 	}
 
 	public void insertATreeNode(int value) {
-		TreeNode nodeToBeInserted = new TreeNode(value);
 		
+		TreeNode nodeToBeInserted = new TreeNode(value);
 		if(root==null){
-			this.root = nodeToBeInserted;
+			root=nodeToBeInserted;
+			return;
 		}else{
-			TreeNode current = root;
+			TreeNode cur = root;
 			TreeNode parent;
 			while(true){
-				parent = current;
-				
-				if(value<current.key){
-					
-					//go left
-					current = current.leftChild;
-					if(current==null){
+				parent = cur;
+				if(value<cur.key){
+					cur=cur.leftChild;
+					if(cur==null){
 						parent.leftChild=nodeToBeInserted;
 						return;
 					}
-					
 				}else{
-					
-					//go right
-					current = current.rightChild;
-					if(current==null){
+					cur=cur.rightChild;
+					if(cur==null){
 						parent.rightChild=nodeToBeInserted;
 						return;
 					}
-					
 				}
 			}
 		}
@@ -74,6 +68,21 @@ public class BinarySearchTree {
 	public void delete(int id) {
 
 	}
+	
+	 public void insert (int value)
+	   {  root = insert ( value, root );  }
+
+	// NOTE:  This implementation is allowing equal keys.
+	 public TreeNode insert (Integer value, TreeNode node )
+	   {
+	      if ( node == null )
+	         return new TreeNode(value);
+	      else if (value < node.key)
+	         node.leftChild = insert ( value, node.leftChild);
+	      else
+	         node.rightChild = insert ( value, node.rightChild);
+	      return node;
+	   }
 	
 	
 

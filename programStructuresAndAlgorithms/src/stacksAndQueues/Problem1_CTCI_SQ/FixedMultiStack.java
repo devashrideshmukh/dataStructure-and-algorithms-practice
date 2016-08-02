@@ -1,77 +1,73 @@
 package stacksAndQueues.Problem1_CTCI_SQ;
 
+import java.util.EmptyStackException;
+
 /**
- * This class is used to create three stacks 
- * Each stack is of fixed capacity
- * 
- * stackCapacity -> capacity of each stack value -> one array to hold values of
- * all stacks sizes -> array holding sizes of each stack according to
- * stackNumber at index
+ * Three In One: Describe how you could use a single array to implement three
+ * stacks
  * 
  * @author Devashri
  *
  */
 public class FixedMultiStack {
-
-	private int numberOfStacks = 3;
-	private int stackCapacity;
+	private int noOfStacks = 3;
 	private int[] values;
 	private int[] sizes;
+	private int capacity;
 
-	public FixedMultiStack(int stackSize) {
-		this.stackCapacity = stackSize;
-		this.values = new int[stackSize * numberOfStacks];
-		this.sizes = new int[stackSize];
+	public FixedMultiStack(int capacity) {
+		this.capacity = capacity;
+		values = new int[capacity * noOfStacks];
+		sizes = new int[noOfStacks];
 	}
 
-	public void push(int stackNumber, int value) throws FullStackException {
+	// checks if the stack of given number is empty
+	public boolean isStackEmpty(int stackNumber) {
+		return sizes[stackNumber] == 0 ? true : false;
+	}
+
+	// checks if the stack of given number is full
+	public boolean isFull(int stackNumber) {
+		return sizes[stackNumber] == capacity ? true : false;
+	}
+
+	// returns index of top of the given stack number
+	public int indexOfTop(int stackNumber) {
+		int offset = stackNumber * capacity;
+		int size = sizes[stackNumber];
+		return offset + size - 1;
+	}
+
+	// push an item into the stack whose number is provided
+	public void push(int stackNumber, int item) throws FullStackException {
 		if (isFull(stackNumber)) {
 			throw new FullStackException();
-		} else {
-			sizes[stackNumber]++;
-			values[indexOfTop(stackNumber)] = value;
 		}
+		sizes[stackNumber]++;
+		values[indexOfTop(stackNumber)] = item;
+
 	}
 
-	public int pop(int stackNumber) throws EmptyStackException {
-		if (isEmpty(stackNumber)) {
+	// pops an item from the stack whose stack number is given
+	public int pop(int stackNumber) {
+		if (isStackEmpty(stackNumber)) {
 			throw new EmptyStackException();
-		} else {
-
-			int valueToBePopped = values[indexOfTop(stackNumber)];
-			values[indexOfTop(stackNumber)] = 0;
-			sizes[stackNumber]--;
-			return valueToBePopped;
 		}
+
+		int topIndex = indexOfTop(stackNumber);
+		int valueToBePopped = values[topIndex];
+		values[topIndex] = 0;
+		sizes[stackNumber]--;
+		return valueToBePopped;
 	}
 
-	public int peek(int stackNumber) throws EmptyStackException {
-		if (isEmpty(stackNumber)) {
+	// peek
+	public int peek(int stackNumber) {
+		if (isStackEmpty(stackNumber)) {
 			throw new EmptyStackException();
-		} else {
-			return values[indexOfTop(stackNumber)];
 		}
+		int topIndex = indexOfTop(stackNumber);
+		return values[topIndex];
 	}
 
-	public boolean isEmpty(int stackNumber) {
-		if (sizes[stackNumber] == 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean isFull(int stackNumber) {
-		if (sizes[stackNumber] == stackCapacity) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	private int indexOfTop(int stackNumber) {
-		int offset = stackCapacity * stackNumber;
-		int size = sizes[stackNumber];
-		return size + offset - 1;
-	}
 }

@@ -1,5 +1,8 @@
 	package treesAndGraphs;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Find size of complete binary tree
  * Find left and right height
@@ -54,6 +57,28 @@ public class SizeOfTree {
 	        return count;
 	    }
 	
+	    
+	    public static int countNodesIterative(TreeNode node){
+	    	int count = 0;
+	    	if(node == null){
+	    		return count;
+	    	}
+	    	
+	    	Queue<TreeNode> queue =new LinkedList<TreeNode>();
+	    	queue.add(node);
+	    	
+	    	while(!queue.isEmpty()){
+	    		TreeNode temp = queue.remove();
+	    		if(temp.leftChild!=null){
+	    			queue.add(temp.leftChild);
+	    		}
+	    		if(temp.rightChild!=null){
+	    			queue.add(temp.rightChild);
+	    		}
+	    		count++;
+	    	}
+	    	return count;
+	    }
 	
 	
 	    

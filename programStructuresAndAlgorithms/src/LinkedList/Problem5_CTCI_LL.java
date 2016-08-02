@@ -32,6 +32,7 @@ public class Problem5_CTCI_LL {
 				q = q.next;
 		}
 
+		//create another node for carry
 		if (carry > 0) {
 			cur.next = new Node(carry);
 		}

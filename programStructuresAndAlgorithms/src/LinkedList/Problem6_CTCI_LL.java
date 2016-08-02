@@ -46,6 +46,8 @@ public class Problem6_CTCI_LL {
 			prev = current;
 			current = nextNode;
 		}
+		
+		//set head to second list
 		secondHead = prev;
 
 		// compare two lists
