@@ -13,85 +13,112 @@ public class MyGraph<T> {
 		adjList = new HashMap<>();
 		listOfVertices = new ArrayList<>();
 	}
-	
+
 	public HashMap<T, ArrayList<Edge<T>>> getAdjList() {
 		return adjList;
 	}
-	
+
 	public ArrayList<T> getListOfVertices() {
 		return listOfVertices;
 	}
-	
+
 	/**
-	 * This method returns a list of all adjacent vertices of the give vertex without weight
+	 * This method returns a list of all adjacent vertices of the give vertex
+	 * without weight
 	 * 
-	 * @param vertex the source vertex 
+	 * @param vertex
+	 *            the source vertex
 	 * @return an array list containing the vertices
 	 */
-	public ArrayList<T> getListOfAdjacentVertices(T vertex){
+	public ArrayList<T> getListOfAdjacentVertices(T vertex) {
 		ArrayList<T> listOfAdjVertices = new ArrayList<>();
-		for(Edge<T> edge:adjList.get(vertex)){
+		for (Edge<T> edge : adjList.get(vertex)) {
 			listOfAdjVertices.add(edge.getVertex());
 		}
 		return listOfAdjVertices;
 	}
-	
+
 	/**
 	 * This method adds and edge between two vertices
+	 * 
 	 * @param vertex1
 	 * @param vertex2
 	 * @return returns true if addition is successful
 	 */
-	public boolean addEdge(T vertex1, T vertex2){
-		
+	public boolean addEdge(T vertex1, T vertex2) {
+
 		if(isDirected){
-			return false;
+			return addArc(vertex1,vertex2);
 		}
 		
-		if(!adjList.containsKey(vertex1)){
+		if (!adjList.containsKey(vertex1)) {
 			ArrayList<Edge<T>> list = new ArrayList<>();
 			list.add(new Edge<T>(vertex2));
-			addVertex(vertex1,list);
+			addVertex(vertex1, list);
 			return true;
 		}
-		
-		if(!adjList.containsKey(vertex2)){
+
+		if (!adjList.containsKey(vertex2)) {
 			ArrayList<Edge<T>> list = new ArrayList<>();
 			list.add(new Edge<T>(vertex1));
-			addVertex(vertex2,list);
+			addVertex(vertex2, list);
 			return true;
 		}
-		
+
 		adjList.get(vertex1).add(new Edge<T>(vertex2));
 		adjList.get(vertex2).add(new Edge<T>(vertex1));
+
 		return true;
 	}
-	
+
 	/**
 	 * Add vertex - helper method
+	 * 
 	 * @param vertex
 	 * @param correspondingList
 	 */
-	public void addVertex(T vertex,ArrayList<Edge<T>> correspondingList){
-		
-		//make an entry to the map
+	public void addVertex(T vertex, ArrayList<Edge<T>> correspondingList) {
+
+		// make an entry to the map
 		adjList.put(vertex, correspondingList);
-		//add the vertex to the list of vertices
+		// add the vertex to the list of vertices
 		listOfVertices.add(vertex);
-		
-		for(Edge<T> edge:correspondingList){
-			//get edge of given node
+
+		for (Edge<T> edge : correspondingList) {
+			// get edge of given node
 			ArrayList<Edge<T>> listOfGivenEdge = adjList.get(edge.getVertex());
-			if(listOfGivenEdge==null){
+			if (listOfGivenEdge == null) {
 				listOfGivenEdge = new ArrayList<Edge<T>>();
 				adjList.put(edge.getVertex(), listOfGivenEdge);
 				listOfVertices.add(edge.getVertex());
 			}
-			listOfGivenEdge.add(new Edge<T>(vertex));
+			if(!isDirected){
+				listOfGivenEdge.add(new Edge<T>(vertex));
+			}
+			
 		}
-		
+
 	}
 	
+	public boolean addArc(T source, T end) {
+		
+		if (!adjList.containsKey(source)) {
+			ArrayList<Edge<T>> tempList = new ArrayList<Edge<T>>();
+			tempList.add(new Edge<T>(end));
+			addVertex(source, tempList);
+			return true;
+		}
+		
+		if (!adjList.containsKey(end)) {
+			ArrayList<Edge<T>> tempList = new ArrayList<Edge<T>>();
+			addVertex(end, tempList);
+		}
+		
+
+		adjList.get(source).add(new Edge<T>(end));
+		return true;
+	}
+
 	@Override
 	public String toString() {
 		String s = "";
