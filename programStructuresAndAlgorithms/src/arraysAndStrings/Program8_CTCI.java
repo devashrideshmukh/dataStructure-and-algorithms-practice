@@ -96,12 +96,12 @@ public class Program8_CTCI {
 		
 		//nullify first column if it contains zero
 		if(rowHasZeros){
-			nullifyCol(matrix,0);
+			nullifyRow(matrix,0);
 		}
 		
 		//nullify first row if it contains zero
 		if(colHasZeros){
-			nullifyRow(matrix,0);
+			nullifyCol(matrix,0);
 		}
 		
 	}
