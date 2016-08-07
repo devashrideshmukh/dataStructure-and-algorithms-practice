@@ -50,8 +50,14 @@ public class Hasher<K, V> {
 	}
 	
 	// remove method
-	public void remove(K key) {
+	public V remove(K key) {
+		
 		LinkedListNode<K, V> nodeToBeRemoved = getNodeForKey(key);
+		
+		if(nodeToBeRemoved==null){
+			return null;
+		}
+		
 		if(nodeToBeRemoved.prev!=null){
 			nodeToBeRemoved.prev.next=nodeToBeRemoved.next;
 		}else{
@@ -60,9 +66,12 @@ public class Hasher<K, V> {
 			array.set(index, nodeToBeRemoved.next);
 		}
 		
+		//setting previous
 		if(nodeToBeRemoved.next!=null){
 			nodeToBeRemoved.next.prev=nodeToBeRemoved.prev;
 		}
+		
+		return nodeToBeRemoved.value;
 	}
 
 	// get method

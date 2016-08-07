@@ -11,7 +11,7 @@ public class RunnerHashTable {
 		System.out.println("Devashri-->"+map.get("Devashri"));
 		map.remove("Devashri");
 		System.out.println("Devashri-->"+map.get("Devashri"));
-		
+		System.out.println("Deepti-->"+map.get("Deepti"));
 	}
 }
 
