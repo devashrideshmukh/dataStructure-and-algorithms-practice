@@ -52,10 +52,12 @@ public class Problem7_CTCI_LL {
 	public Node findIntersectionWithoutUsingExtraDataStructure(Node headA, Node headB) {
 		 int lengthA = 0;
 	        Node tempA = headA;
-	        
+	        Node prevA = null;
+	        Node prevB = null;
 	        //finding length of list A
 	        while(tempA!=null){
 	            lengthA++;
+	            prevA =tempA;
 	            tempA = tempA.next;
 	        }
 	        
@@ -65,12 +67,13 @@ public class Problem7_CTCI_LL {
 	        //finding length of list B
 	        while(tempB!=null){
 	            lengthB++;
+	            prevB = tempB;
 	            tempB = tempB.next;
+	           
 	        }
 	        
-	        //check if tail of both is same
-	        if(tempA!=tempB){
-	            return null;
+	        if(prevB!=prevA){
+	        	return null;
 	        }
 	        
 	        //put longer one in tempA shorter list in tempB
