@@ -23,6 +23,7 @@ public class MaxDiff {
 		int maxDiff = diff[0];
 		for (int i = 1; i < n - 1; i++) {
 			
+			//add
 			if (diff[i - 1] > 0) {
 				diff[i] += diff[i - 1];
 			}

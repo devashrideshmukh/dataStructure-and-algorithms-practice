@@ -22,7 +22,7 @@ public class MaxRepitition {
 		int max = Integer.MIN_VALUE;
 		int maxIndex = 0;
 		for (int j = 0; j < a.length; j++) {
-			System.out.println(a[j]);
+			System.out.print(a[j]+" ");
 			if (a[j] > max) {
 				max = a[j];
 				maxIndex = j;
@@ -30,5 +30,11 @@ public class MaxRepitition {
 		}
 
 		return maxIndex;
+	}
+	
+	public static void main(String[] args) {
+		int[] arr = {3,1,2,2,3,4,4,4};
+		System.out.println("\n"+getMaxRepetition(arr));
+		
 	}
 }
