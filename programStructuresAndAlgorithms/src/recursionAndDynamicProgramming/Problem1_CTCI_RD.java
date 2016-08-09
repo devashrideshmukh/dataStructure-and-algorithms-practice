@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @author Devashri
  *
  */
-public class TripleStep {
+public class Problem1_CTCI_RD {
 	
 	public static int tripleStepCount(int n) {
 
@@ -34,8 +34,8 @@ public class TripleStep {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("For 2nd step"+TripleStep.tripleStepCount(2));
-		System.out.println("For 3nd step"+TripleStep.tripleStepCount(3));
+		System.out.println("For 2nd step"+Problem1_CTCI_RD.tripleStepCount(2));
+		System.out.println("For 3nd step"+Problem1_CTCI_RD.tripleStepCount(3));
 	}
 
 }
