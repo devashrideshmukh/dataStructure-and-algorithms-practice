@@ -18,6 +18,7 @@ import java.util.LinkedList;
 public class AnimalQueue {
 	LinkedList<Dog> dogList;
 	LinkedList<Cat> catList;
+	//variable to maintain order
 	private int order;
 
 	public AnimalQueue() {
